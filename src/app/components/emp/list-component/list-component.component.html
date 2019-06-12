@@ -1,0 +1,22 @@
+<div class="container">
+  <a class="btn" routerLink="/add" routerLinkActive="active">Add</a>
+  <table class="table table-striped">
+    <tr>
+      <th>Sr.No</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let ed of empData ; let i = index" [attr.data-index]="i">
+      <td>{{i+1}}</td>
+      <td>{{ed.user_name}}</td>
+      <td>{{ed.user_email}}</td>
+      <td>{{ed.user_password}}</td>
+      <td>
+        <a class="btn"[routerLink]="['/add/',ed.user_id]" routerLinkActive="active">Edit</a>
+        <a class="btn" href="javascript:void(0);" (click)="delete(ed.user_id, ed.user_name)">Delete</a>
+      </td>
+    </tr>
+  </table>
+</div>
